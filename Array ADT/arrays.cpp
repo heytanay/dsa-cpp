@@ -23,7 +23,7 @@ class Array{
 		int mean();
 		int sum();
 		int reverse();
-		int display();
+		int display_el();
 };
 
 // Constructor
@@ -34,21 +34,21 @@ Array::Array(int size_arr){
 };
 
 // Display function - Old function (New One will be operator overloaded)
-Array::display(){
+int Array::display_el(){
 	for (int i=0; i<this->length; i++){
 		std::cout<<A[i]<<std::endl;
 	}	
 };
 
 // Add function - To add an element at the end of the array
-Array::add(int x){
+int Array::add(int x){
 	if (this->length < this->size){
 		this->A[this->length++] = x;
 	}
 };
 
 // Insert function - To insert an element at a certain index with a cetain value
-Array::insert_el(int index, int x){
+int Array::insert_el(int index, int x){
 	if(index >= 0 && index <= this->length){
 	
 		for (int i=this->length; i>index; i--){
@@ -60,7 +60,7 @@ Array::insert_el(int index, int x){
 };
 
 // Delete function - To delete the element having a certain index
-Array::delete_el(int index){
+int Array::delete_el(int index){
 	if (index >= 0 && index<this->length){
 		int x = this->A[index];
 		for (int i=index; i<this->length; i++){
@@ -74,7 +74,7 @@ Array::delete_el(int index){
 };
 
 // Linear Search Function
-Array::isPresentLinear(int element){
+int Array::isPresentLinear(int element){
 	for (int i=0; i<length; i++){
 		if (A[i] == element){
 			return i;
@@ -84,7 +84,7 @@ Array::isPresentLinear(int element){
 }
 
 // Binary Search
-Array::isPresentBinary(int element){
+int Array::isPresentBinary(int element){
 	int start_idx = 0;
 	int end_idx = this->length-1;
 		
@@ -105,19 +105,19 @@ Array::isPresentBinary(int element){
 }
 
 // Other Basic functions
-Array::get_el(int index){
+int Array::get_el(int index){
 	if (index >= 0 && index < this->length){
 		return this->A[index];
 	}
 }
 
-Array::set_el(int index, int value){
+int Array::set_el(int index, int value){
 	if (index >= 0 && index < this->length){
 		this->A[index] = value;
 	}
 }
 
-Array::max_el(){
+int Array::max_el(){
 	int el = this->A[0];
 	for (int i=0; i<this->length; i++){
 		if (this->A[i] > el){
@@ -127,7 +127,7 @@ Array::max_el(){
 	return el;
 }
 
-Array::min_el(){
+int Array::min_el(){
 	int el = this->A[0];
 	for (int i=0; i<this->length; i++){
 		if (this->A[i] < el){
@@ -137,7 +137,7 @@ Array::min_el(){
 	return el;
 }
 
-Array::mean(){
+int Array::mean(){
 	int summ;
 	float mean;
 	
@@ -149,7 +149,7 @@ Array::mean(){
 	return mean;
 }
 
-Array::sum(){
+int Array::sum(){
 	int sum;
 	for (int i=0; i<this->length; i++){
 		sum += this->A[i];
@@ -158,7 +158,7 @@ Array::sum(){
 }
 
 // Reverse function
-Array::reverse(){
+int Array::reverse(){
 	for (int i=0, j=this->length-1; i<j; i++, j--){
 		int temp = this->A[i];
 		this->A[i] = this->A[j];
@@ -167,7 +167,7 @@ Array::reverse(){
 };
 
 // Inserting Operation in a Sorted Array
-Array::insertInSorted(int x){
+int Array::insertInSorted(int x){
 	int i=this->length-1;
 	while (this->A[i] > x){
 		this->A[i+1] = this->A[i];
@@ -178,7 +178,7 @@ Array::insertInSorted(int x){
 }
 
 // Checking if an array is sorted
-Array::isSorted(){
+int Array::isSorted(){
 	for (int i=0; i<this->length-1; i++){
 		if (this->A[i] > this->A[i+1]){
 			return 0;
@@ -193,7 +193,7 @@ int main(){
 	a1.add(2);
 	a1.add(4);
 	a1.add(3);
-	a1.display();
+	a1.display_el();
 	std::cout<<"______________________"<<std::endl;
 	std::cout<<a1.isSorted()<<std::endl;
 };
