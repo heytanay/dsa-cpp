@@ -23,7 +23,7 @@ class Array{
 		int mean();
 		int sum();
 		int reverse();
-		int display_el();
+		void display_el();
 };
 
 // Constructor
@@ -34,7 +34,7 @@ Array::Array(int size_arr){
 };
 
 // Display function - Old function (New One will be operator overloaded)
-int Array::display_el(){
+void Array::display_el(){
 	for (int i=0; i<this->length; i++){
 		std::cout<<A[i]<<std::endl;
 	}	
